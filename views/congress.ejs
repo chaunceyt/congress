@@ -1,0 +1,26 @@
+<% if (site.items.length) { %>
+
+<ul id="items">
+<% for(var i=0; i<site.items.length; i++) { %>
+    <li>
+    <p>
+    <img src="/images/100x125/<%= site.items[i].bioguide_id %>.jpg">
+    <br/>
+    <a href="/lawmaker/<%= site.items[i].bioguide_id %>">
+    <%= site.items[i].title %>
+    <%= site.items[i].firstname %>
+    <%= site.items[i].middlename %>
+    <%= site.items[i].lastname %></a>
+    / 
+    <a href="/congress/district/<%= site.items[i].state %>/<%= site.items[i].district %>">
+    <%= site.items[i].party %>
+    <%= site.items[i].state %>
+    <%= site.items[i].district %></a>
+    </p>
+
+    </li>
+  <%} %>
+</ul>
+<%} %>
+
+

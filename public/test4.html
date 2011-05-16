@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Raphael Play</title>
+        <script type="text/javascript" src="/javascripts/raphael-min.js"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+                var paper = new Raphael(document.getElementById('canvas_container'), 500, 500);
+
+                var circ = paper.circle(250, 250, 20).attr({fill: '#000'});
+                var mood_text = paper.text(250, 250, 'My\nMood').attr({fill: '#fff'});
+
+                moods = ['Rubbish', 'Not Good', 'OK', 'Smily', 'Positively Manic'];
+                colors = ['#cc0000', '#a97e22', '#9f9136', '#7c9a2d', '#3a9a2d'];
+
+                document.enterValue.submitBtn.removeAttribute('disabled');
+
+                var my_mood = 5;
+                /*document.enterValue.onsubmit = function() {
+                    var val = document.enterValue.moodValue.value;
+                    if(val > 0 && val <= 5) {
+                        my_mood = val;
+                    }
+                    document.enterValue.submitBtn.setAttribute('disabled', 'disabled');
+                    return false;
+                }*/
+
+                function show_mood() {
+
+                    for(var i = 0; i < my_mood; i+=1) {
+                        (function(i) {
+                            setTimeout(function() {
+                                paper.circle(250, 250, 20).attr({
+                                    stroke: 'none',
+                                    fill: colors[my_mood - 1]
+                                }).animate({translation: '0 ' + (-42 * (i+1))}, 2000, 'bounce').toBack();
+                            }, 50*i);
+                        })(i);
+                    }
+                    paper.text(250, 300, moods[my_mood - 1]).attr({fill: colors[my_mood - 1]});
+
+                    mood_text.node.onclick = function() {
+                        return false;
+                    }
+                    circ.node.onclick = function() {
+                        return false;
+                    }
+
+                }
+
+                circ.node.onclick = show_mood;
+                mood_text.node.onclick = show_mood;
+
+            }
+        </script>
+        <style type="text/css">
+            #canvas_container {
+                width: 500px;
+                border: 1px solid #aaa;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="canvas_container"></div>
+        <p>First, give the Mood Meter a value between 1 and 5.</p>
+        <form name="enterValue" action="test4.html">
+            <input name="moodValue" "type="text" value="5" />
+            <input type="submit" name="submitBtn" />
+        </form>
+        <h2>Now Click on the 'My Mood' circle!</h2>
+    </body>
+</html>
+

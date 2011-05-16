@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Raphael Play</title>
+        <script type="text/javascript" src="/javascripts/raphael-min.js"></script>
+        <script type="text/javascript">
+            window.onload = function() {
+                var paper = new Raphael(document.getElementById('canvas_container'), 500, 500);
+                var circle = paper.circle(100, 100, 80);
+                for(var i = 0; i < 5; i+=1) {
+                    var multiplier = i*5;
+                    paper.circle(250 + (2*multiplier), 100 + multiplier, 50 - multiplier)
+                }
+                var rectangle = paper.rect(200, 200, 250, 100);
+                var ellipse = paper.ellipse(200, 400, 100, 50);
+
+            }
+
+        </script>
+        <style type="text/css">
+            #canvas_container {
+                width: 500px;
+                border: 1px solid #aaa;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="canvas_container"></div>
+    </body>
+</html>
+

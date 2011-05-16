@@ -1,0 +1,27 @@
+<h1>Congressional Member: <%= site.message %></h1>
+
+<% if (site.items.length) { %>
+
+<ul id="items">
+<% for(var i=0; i<site.items.length; i++) { %>
+    <li>
+    <p>
+    <img src="/images/100x125/<%= site.items[i].bioguide_id %>.jpg">
+    <br/>
+    <%= site.items[i].party %>
+    <%= site.items[i].state %>
+    <%= site.items[i].district %>
+    </p>
+    <p>
+    Phone <%= site.items[i].phone %><br/>
+    Fax <%= site.items[i].fax %><br/>
+    Website <%= site.items[i].website %><br/>
+    </p>
+    <img src="http://www.opensecrets.org/politicians/scoff_img.php?cycle=2010&cid=<%= site.items[i].crp_id %>"/>
+
+    </li>
+  <%} %>
+</ul>
+<%} %>
+
+

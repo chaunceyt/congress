@@ -1,0 +1,42 @@
+<h1>NodeJS</h1>
+<% if (items.length) { %>
+
+<ul id="items">
+<% for(var i=0; i<items.length; i++) { %>
+    <li>
+    <p>
+    <img src="/images/100x125/<%= items[i].bioguide_id %>.jpg">
+    <br/>
+    <%= items[i].title %>
+    <%= items[i].firstname %>
+    <%= items[i].middlename %>
+    <%= items[i].lastname %>
+    <br/>
+    <%= items[i].party %>
+    <%= items[i].state %>
+    <%= items[i].district %>
+    </p>
+    <p>
+    Phone <%= items[i].phone %><br/>
+    Fax <%= items[i].fax %><br/>
+    Website <%= items[i].website %><br/>
+
+    </p>
+
+    </li>
+  <%} %>
+</ul>
+<%} %>
+<nav class="pagination">
+
+    <% if (locals.prev) { %>
+        <a href="/pages/<%= (page + 1) %>">Previous</a>
+    <% } %>
+
+    <% if (locals.next) { %>
+        <a href="/pages/<%= (page - 1) %>">Next</a>
+    <% } %>
+
+</nav>
+
+

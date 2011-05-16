@@ -1,0 +1,93 @@
+<script src="/javascripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $("form.form #submit_btn").click(function() {
+
+    //SOMETHING ON CLICK....+
+
+        var username = $('#username').val();  
+        var title = $('#title').val();
+        var content = $('#content').val();
+
+        var i = 0;
+    $.ajax({
+        type: "POST",
+        data: "username="+username+"&title="+title+"&content="+content,
+        cache: false,
+        success: function(){
+        //SOMETHING ON SUCCESS....+
+        }
+    });
+    return false;
+    });
+}); 
+</script>
+<img src="/images/united-states-map.gif" alt="united states map" width="750" height="453" border="0" usemap="#Map2">
+<br/>
+Map Courtesy of <a href="http://www.digital-topo-maps.com/county-map/">Digital-Topo-Maps.com</a>
+<br/>
+<div id="debate_text">
+<!--
+<form action="/post" method="POST">
+Name: <input id="username" type="text" name="username"/><br/>
+Title:<br/>
+<input id="title" type="text" name="title"/><br/>
+Body:<br/>
+<textarea id="content" cols="60" rows="15" name="content"></textarea><br/>
+<input id="submit_btn" type="submit" value="Submit Content"/>
+</form>
+
+</div>
+-->
+<map name="Map2"> 
+<area shape="rect" coords="17,12,113,68" href="/congress/district/wa"> 
+<area shape="rect" coords="18,69,114,139" href="/congress/district/or"> 
+<area shape="poly" coords="25,140,74,141,75,189,147,259,139,282,113,287,71,257,32,191" href="/congress/district/ca"> 
+<area shape="poly" coords="77,140,147,140,142,248,77,187" href="/congress/district/nv"> 
+<area shape="poly" coords="209,304,211,222,152,222,143,288" href="arizona.shtml"> 
+<area shape="poly" coords="150,140,185,141,187,154,209,158,211,217,152,217" href="/congress/district/ut"> 
+<area shape="poly" coords="115,17,120,19,164,98,186,99,185,137,116,137" href="/congress/district/id"> 
+<area shape="poly" coords="125,17,272,16,273,86,167,93" href="/congress/district/mt"> 
+<area shape="rect" coords="191,92,274,154" href="/congress/district/wy"> 
+<area shape="rect" coords="213,157,300,218" href="/congress/district/co"> 
+<area shape="rect" coords="214,222,288,296" href="/congress/district/nm"> 
+<area shape="rect" coords="34,297,182,441" href="/congress/district/ak"> 
+<area shape="rect" coords="185,348,288,413" href="/congress/district/hi"> 
+<area shape="poly" coords="289,230,323,229,325,257,362,271,397,274,400,328,358,381,282,338,245,296,289,296" href="/congress/district/tx"> 
+<area shape="poly" coords="390,266,327,255,324,227,290,224,290,220,389,222" href="/congress/district/ok"> 
+<area shape="rect" coords="302,173,392,218" href="/congress/district/ks"> 
+<area shape="poly" coords="277,124,360,126,381,170,304,169,304,154,278,153" href="/congress/district/ne"> 
+<area shape="rect" coords="276,72,367,122" href="/congress/district/sd"> 
+<area shape="rect" coords="276,17,365,70" href="/congress/district/nd"> 
+<area shape="poly" coords="367,18,449,34,413,74,431,111,370,111" href="/congress/district/mn"> 
+<area shape="rect" coords="373,116,438,160" href="/congress/district/ia"> 
+<area shape="poly" coords="386,166,427,165,458,223,394,226,395,187" href="/congress/district/mo"> 
+<area shape="poly" coords="397,230,445,231,449,238,433,278,397,274" href="/congress/district/ar"> 
+<area shape="poly" coords="402,282,433,281,428,309,448,310,455,339,404,331" href="/congress/district/la"> 
+<area shape="poly" coords="445,253,471,252,470,315,457,317,455,306,433,305" href="/congress/district/ms"> 
+<area shape="poly" coords="476,253,501,253,509,306,473,315" href="/congress/district/al"> 
+<area shape="poly" coords="484,313,559,317,583,406" href="/congress/district/fl"> 
+<area shape="poly" coords="505,252,532,253,562,294,551,314,513,311" href="/congress/district/ga"> 
+<area shape="poly" coords="563,291,590,268,573,256,560,251,537,253" href="/congress/district/sc"> 
+<area shape="poly" coords="522,247,556,230,628,230,596,267,571,252" href="/congress/district/nc"> 
+<area shape="poly" coords="457,229,555,227,518,248,450,248" href="/congress/district/tn"> 
+<area shape="poly" coords="462,219,515,192,535,195,547,213,531,224,462,226" href="/congress/district/ky"> 
+<area shape="poly" coords="449,133,476,131,477,193,462,215,435,170" href="/congress/district/il"> 
+<area shape="poly" coords="474,130,486,87,438,56,417,74,442,126" href="/congress/district/wi"> 
+<area shape="poly" coords="493,139,490,87,448,59,491,44,550,85,534,143" href="/congress/district/mi"> 
+<area shape="poly" coords="485,145,513,145,512,189,476,204" href="/congress/district/in"> 
+<area shape="poly" coords="518,146,565,144,562,174,543,197,519,188" href="/congress/district/oh"> 
+<area shape="poly" coords="565,175,593,183,557,216,544,199" href="/congress/district/wv"> 
+<area shape="poly" coords="548,216,568,213,600,185,622,225,535,223" href="/congress/district/va"> 
+<area shape="poly" coords="687,82,708,44,728,48,740,93,691,122" href="/congress/district/me"> 
+<area shape="poly" coords="687,125,669,124,684,75" href="/congress/district/nh"> 
+<area shape="poly" coords="660,84,680,84,666,124,661,124" href="/congress/district/vt"> 
+<area shape="poly" coords="657,86,652,157,630,138,570,133" href="/congress/district/ny"> 
+<area shape="rect" coords="570,141,636,176" href="/congress/district/pa"> 
+<area shape="rect" coords="659,128,702,137" href="/congress/district/ma"> 
+<area shape="rect" coords="657,140,676,152" href="/congress/district/ct"> 
+<area shape="poly" coords="691,158,680,140,677,163" href="/congress/district/ri"> 
+<area shape="poly" coords="640,151,632,178,642,188,650,163" href="/congress/district/nj"> 
+<area shape="poly" coords="628,178,640,190,657,191,657,200,630,195" href="/congress/district/de"> 
+<area shape="poly" coords="639,199,626,197,625,178,583,178,606,183,612,197,624,203" href="/congress/district/md"> 
+</map>

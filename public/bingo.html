@@ -1,0 +1,86 @@
+
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+        <meta charset="utf-8"> 
+        <title>Raphaël · Playground</title> 
+        <link rel="stylesheet" href="demo.css" type="text/css" media="screen"> 
+        <link rel="stylesheet" href="demo-print.css" type="text/css" media="print"> 
+        <script src="/javascripts/raphael-min.js"></script> 
+        <style media="screen"> 
+            body {
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+            h1 {
+                font-weight: 400;
+                height: 5%;
+            }
+            #canvas {
+                height: 480px;
+                margin: 0 auto;
+                text-align: left;
+                width: 640px;
+            }
+            #code {
+                font-family: Consolas, Monaco, "Lucida Console", monospace;
+                height: 4em;
+                margin: 10px;
+                padding: 0;
+                width: 90%;
+            }
+            #run {
+                font-size: 2em;
+            }
+        </style> 
+        <script> 
+            window.onload = function () {
+                var paper = Raphael("canvas", 640, 480);
+
+                var ba = paper.rect(10, 10, 60, 60);
+                var batx = paper.text(35, 40, 'Test');
+                ba.attr("fill", "white");
+                ba.node.onclick = function() {
+                        //alert("your mom");
+                        ba.attr("fill", "green");
+                        ba.animate({cx: 20, r: 20}, 2000, "bounce");
+                        //tx.hide();
+                };
+                var iatx = paper.text(65, 40, 'Test');
+                var ia = paper.rect( 80, 10, 60, 60);
+                var na = paper.rect( 150, 10, 60, 60);
+                var ga = paper.rect( 220, 10, 60, 60);
+                var oa = paper.rect( 290, 10, 60, 60);
+                    
+                var bb = paper.rect(10, 80, 60, 60);
+                var ib = paper.rect( 80, 80, 60, 60);
+                var nb = paper.rect( 150, 80, 60, 60);
+                var gb = paper.rect( 220, 80, 60, 60);
+                var ob = paper.rect( 290, 80, 60, 60);
+
+                var bc = paper.rect(10, 150, 60, 60);
+                var ic = paper.rect( 80, 150, 60, 60);
+                var nc = paper.rect( 150, 150, 60, 60);
+                var gc = paper.rect( 220, 150, 60, 60);
+                var oc = paper.rect( 290, 150, 60, 60);
+
+                var bd = paper.rect(10, 220, 60, 60);
+                var id = paper.rect( 80, 220, 60, 60);
+                var nd = paper.rect( 150, 220, 60, 60);
+                var gd = paper.rect( 220, 220, 60, 60);
+                var od = paper.rect( 290, 220, 60, 60);
+
+                var be = paper.rect(10, 290, 60, 60);
+                var ie = paper.rect( 80, 290, 60, 60);
+                var ne = paper.rect( 150, 290, 60, 60);
+                var ge = paper.rect( 220, 290, 60, 60);
+                var oe = paper.rect( 290, 290, 60, 60); 
+};
+        </script> 
+    </head> 
+    <body> 
+        <h1>BINGO Test</h1> 
+        <div id="canvas"></div> 
+    </body> 
+</html> 
