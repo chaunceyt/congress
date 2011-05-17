@@ -1,33 +1,12 @@
-<script src="/javascripts/jquery-1.3.2.min.js"></script>
-<script type="text/javascript">
-$(function() {
-    $("form.form #submit_btn").click(function() {
+<p>Click on a State or view by <a href="/congress/senators">Senators</a> or <a href="/congress/representatives/">Representatives</a> </p>
 
-    //SOMETHING ON CLICK....+
-
-        var username = $('#username').val();  
-        var title = $('#title').val();
-        var content = $('#content').val();
-
-        var i = 0;
-    $.ajax({
-        type: "POST",
-        data: "username="+username+"&title="+title+"&content="+content,
-        cache: false,
-        success: function(){
-        //SOMETHING ON SUCCESS....+
-        }
-    });
-    return false;
-    });
-}); 
-</script>
 <img src="/images/united-states-map.gif" alt="united states map" width="750" height="453" border="0" usemap="#Map2">
 <br/>
 Map Courtesy of <a href="http://www.digital-topo-maps.com/county-map/">Digital-Topo-Maps.com</a>
 <br/>
-<div id="debate_text">
 <!--
+<div id="debate_text">
+
 <form action="/post" method="POST">
 Name: <input id="username" type="text" name="username"/><br/>
 Title:<br/>
@@ -44,7 +23,7 @@ Body:<br/>
 <area shape="rect" coords="18,69,114,139" href="/congress/district/or"> 
 <area shape="poly" coords="25,140,74,141,75,189,147,259,139,282,113,287,71,257,32,191" href="/congress/district/ca"> 
 <area shape="poly" coords="77,140,147,140,142,248,77,187" href="/congress/district/nv"> 
-<area shape="poly" coords="209,304,211,222,152,222,143,288" href="arizona.shtml"> 
+<area shape="poly" coords="209,304,211,222,152,222,143,288" href="/congress/district/az"> 
 <area shape="poly" coords="150,140,185,141,187,154,209,158,211,217,152,217" href="/congress/district/ut"> 
 <area shape="poly" coords="115,17,120,19,164,98,186,99,185,137,116,137" href="/congress/district/id"> 
 <area shape="poly" coords="125,17,272,16,273,86,167,93" href="/congress/district/mt"> 

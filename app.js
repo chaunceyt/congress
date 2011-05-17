@@ -9,26 +9,34 @@ var faye = require('faye');
 var http = require('http');
 var gently = new (require('gently'));
 var app = module.exports = express.createServer();
-
+//var Reston = require('Reston');
+//
 var broadcast = new faye.NodeAdapter({
     mount:    '/faye',
     timeout:  45
 });
 
+
+
 client = new Client();
 client.user = 'root';
 client.password = 'vibespin';
+
+//_apikey_ = '5abe0558b3e3735144dc4d2e1b6640d7';
+//APIURL = 'http://www.opensecrets.org/api/?method=';
+
 // Configuration
 
 app.configure(function(){
-  app.use(express.logger());        
   app.set('views', __dirname + '/views');
+  app.use(express.favicon());
   app.set('view engine', 'ejs');
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
   //app.use(express.session({ secret: 'the debator' }));
   app.use(express.static(__dirname + '/public'));
+  app.use(express.logger());        
 });
 
 app.configure('development', function(){
@@ -42,6 +50,7 @@ app.configure('production', function(){
 // Routes
 app.get('/', function(req, res) {
         res.render('index', {message: "Lawmakers"});
+
 });
 
 app.get('/lawmaker/:param1', function(req, res) {
@@ -51,7 +60,7 @@ app.get('/lawmaker/:param1', function(req, res) {
 
         var sql = 'SELECT * FROM lawmakers WHERE bioguide_id = \''+ param1+'\'';
 
-        console.log(sql);
+        //console.log(sql);
 
         client.query(sql, gently.expect(function selectCb(err, results, fields) {
             if(err) {
@@ -135,7 +144,7 @@ app.get('/congress/:controller/:param1?/:param2?', function(req, res) {
         sql += ' ORDER BY lastname ASC';
 
     }
-    console.log(sql);
+    //console.log(sql);
 
     client.query(sql, gently.expect(function selectCb(err, results, fields) {
 
@@ -167,7 +176,6 @@ app.post('/post', function(req, res) {
     var _content = {content: req.body.content} 
 
     broadcast.getClient().publish('/debate', {text0: _username, text1: _title, text2: _content});
-
     res.redirect('/');
 });
 
@@ -180,5 +188,3 @@ if (!module.parent) {
   app.listen(3000);
   console.log("Express server listening on port %d", app.address().port);
 }
-
-

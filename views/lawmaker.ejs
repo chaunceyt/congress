@@ -6,22 +6,25 @@
 <% for(var i=0; i<site.items.length; i++) { %>
     <li>
     <p>
-    <img src="/images/100x125/<%= site.items[i].bioguide_id %>.jpg">
+    <img src="/images/200x250/<%= site.items[i].bioguide_id %>.jpg">
     <br/>
     <%= site.items[i].party %>
     <%= site.items[i].state %>
     <%= site.items[i].district %>
     </p>
-    <p>
+    <p><a href="http://bioguide.congress.gov/scripts/biodisplay.pl?index=<%=
+    site.items[i].bioguide_id %>">Bio</a><br/>
     Phone <%= site.items[i].phone %><br/>
     Fax <%= site.items[i].fax %><br/>
-    Website <%= site.items[i].website %><br/>
+    <a href="<%= site.items[i].website %>" target="_blank">Website</a><br/>
     </p>
-    <img src="http://www.opensecrets.org/politicians/scoff_img.php?cycle=2010&cid=<%= site.items[i].crp_id %>"/>
-
     </li>
+    <li>
+    <img src="http://www.opensecrets.org/politicians/totVSavg.php?cid=<%= site.items[i].crp_id %>&chamber=H&type=I"/>
+    </li>
+    <img src="http://www.opensecrets.org/politicians/scoff_img.php?cycle=2010&cid=<%= site.items[i].crp_id %>"/>
   <%} %>
 </ul>
 <%} %>
 
-
+<p><a href="javascript:history.go(-1)"> [Go Back]</a></p>
